@@ -5,7 +5,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-@WebFilter("/*")                                                                    // 9. Сделать настройки структуры через аннотации
+@WebFilter("/*")                                                       // 9. Сделать настройки структуры через аннотации
 
 public class CarsFilter implements Filter {
     @Override
@@ -16,17 +16,15 @@ public class CarsFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
-        String special = ((HttpServletRequest) request).getHeader("Special");   // 6. Создать фильтр, который будет отклонять все запросы если в
-                                                                                      // реквест хидере нет спец параметра
-        if (special == null && special.equalsIgnoreCase("Special")) {
-            System.out.println("Access is allowed");
-        } else {
-            System.out.println("Access is denied");
+        if (((HttpServletRequest) request).getMethod().equalsIgnoreCase("get")) { // 6. Создать фильтр, который будет отклонять все запросы если в
+            chain.doFilter(request, response);                                               // реквест хидере нет спец параметра (разрешать при этом get запросы)
         }
 
-        String method = ((HttpServletRequest) request).getMethod();
+        String special = ((HttpServletRequest) request).getHeader("Special");
 
-        if ("GET".equalsIgnoreCase(method)) {                                         // разрешать при этом get запросы
+        if (special == null) {
+            throw new ServletException("Enter Special");
+        } else {
             chain.doFilter(request, response);
         }
     }

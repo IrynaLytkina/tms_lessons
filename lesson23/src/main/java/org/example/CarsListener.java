@@ -1,7 +1,6 @@
 package org.example;
 
 import javax.servlet.annotation.WebListener;
-import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
@@ -9,26 +8,15 @@ import javax.servlet.http.HttpSessionListener;
 public class CarsListener implements HttpSessionListener {
 
     @Override
-    public void sessionCreated(HttpSessionEvent se) {            // 7. Создать листенер для логирования при создании сессии
-        HttpSession session = se.getSession();
-        Integer count = (Integer) session.getAttribute("count");
-        if (count == null) {
-            session.setAttribute("count", 1);
-        } else {
-            session.setAttribute("count", count + 1);
-        }
-        System.out.println("sessionCreated - " + count);
+    public void sessionCreated(HttpSessionEvent se) {             // 7. Создать листенер для логирования при создании сессии
+
+        String id = se.getSession().getId();
+        System.out.println("Session ------> " + id);
+
     }
 
     @Override
     public void sessionDestroyed(HttpSessionEvent se) {
-        HttpSession session = se.getSession();
-        Integer count = (Integer) session.getAttribute("count");
-        if (count == null) {
-            session.setAttribute("count", 1);
-        } else {
-            session.setAttribute("count", count + 1);
-        }
-        System.out.println("sessionDestroyed - " + session);
+
     }
 }
