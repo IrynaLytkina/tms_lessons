@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC '-//Sun Microsystems, Inc.//DTD Web
+     Application 2.3//EN' 'http://java.sun.com/dtd/web-app_2_3.dtd'>
+
+<web-app>
+                      <!-- 9. Сделать настройки структуры через web.xml
+
+<!-    <servlet>-->
+<!--        <servlet-name>lesson23_car</servlet-name>-->
+<!--        <servlet-class>org.example.CarsServletPostman</servlet-class>-->
+<!--        <load-on-startup>0</load-on-startup>-->
+<!--    </servlet>-->
+
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>lesson23_car</servlet-name>-->
+<!--        <url-pattern>/cars</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+
+<!--    <filter>-->
+<!--        <filter-name>log</filter-name>-->
+<!--        <filter-class>org.example.CarsFilter</filter-class>-->
+<!--    </filter>-->
+
+<!--    <filter-mapping>-->
+<!--        <filter-name>log</filter-name>-->
+<!--        <servlet-name>lesson23_car</servlet-name>-->
+<!--    </filter-mapping>-->
+
+
+<!--    <listener>-->
+<!--        <listener-class>org.example.CarsListener</listener-class>-->
+<!--    </listener>-->
+
+
+</web-app>
